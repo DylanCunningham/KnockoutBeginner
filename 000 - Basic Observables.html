@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>000</title>
+</head>
+
+<script type="text/javascript" src="knockout-3.4.2.js"></script>			<!--this document demonstrates simple two way binding that can be used inside of knockout.js -->
+<body>
+
+	<p>Name: <strong data-bind="text: named"></strong></p>					<!--this strong tag has been given the data-bind of "text: named". this is due to the fact that we know the data that will be held here will be text -->
+	<p>Input name: <input data-bind="value: named"/></p>					<!--the "value" binding links the elements value with a property on the view model -->
+
+
+<script type="text/javascript">					
+	var nameViewModel = function(){											//we create a function that will be called by our knockout function  
+		self = this;														//we set "this" inside of the function to "self" to avoid confusion when debugging
+		self.named = ko.observable("");										//we set the "named" value to "ko.observable". this allows knockout to know that we want knockout to keep an eye on any changes here and make appropriate changes to the DOM
+	}
+
+	ko.applyBindings(nameViewModel);										//this is where we let knockout know that we want some properties inside of our function linking to the DOM
+
+
+
+
+</script>
+
+</body>
+</html>
